@@ -42,7 +42,7 @@ const NFTs = () => {
         refreshing={refreshing}
         onRefresh={refresh}
         data={nftFeed}
-        onEndReachedThreshold={0.1}
+        onEndReachedThreshold={0.4}
         onEndReached={fetchMore}
         keyExtractor={item => item.name}
         renderItem={({item}) => <NftCard nft={item} />}
