@@ -47,7 +47,6 @@ const NFTs = () => {
         keyExtractor={item => item.name}
         renderItem={({item}) => <NftCard nft={item} />}
         ListFooterComponent={<NftListFooter endReached={endReached} />}
-        ListEmptyComponent={<Text>Empty</Text>}
         ListHeaderComponent={<Text style={styles.pageTitle}>NFTs</Text>}
         showsVerticalScrollIndicator={false}
       />
