@@ -1,8 +1,10 @@
-import {createSlice, Dispatch, PayloadAction} from '@reduxjs/toolkit';
-import {NFT} from '../types/NFT';
-import {GLOBAL} from '../GLOBAL';
-import {Bookmark} from '../types/Bookmark';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {createSlice, Dispatch, PayloadAction} from '@reduxjs/toolkit';
+
+import {GLOBAL} from '../GLOBAL';
+import {NFT} from '../types/NFT';
+import {Bookmark} from '../types/Bookmark';
+
 const {BASE_URL, NFT_CONTRACT, KEY} = GLOBAL.env;
 const {LIMIT, MAX} = GLOBAL.pagination;
 
@@ -115,7 +117,7 @@ export const getNFTFeed = ({
                 const nftData = data.items[0].nft_data[0];
                 return {
                   name: nftData.external_data.name,
-                  imageUrl: nftData.external_data.image,
+                  imageUrl: nftData.external_data.image_256,
                   owner: nftData.owner_address,
                   animationUrl: nftData.external_data.animation_url,
                   tokenId: nftData.token_id,

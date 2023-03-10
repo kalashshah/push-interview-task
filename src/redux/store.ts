@@ -1,5 +1,6 @@
-import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import {useDispatch} from 'react-redux';
+import {combineReducers, configureStore} from '@reduxjs/toolkit';
+
 import nftReducer from './nftSlice';
 import bookmarkReducer from './bookmarkSlice';
 

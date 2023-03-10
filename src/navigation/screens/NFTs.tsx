@@ -1,10 +1,11 @@
 import React from 'react';
-import {FlatList, Text, View} from 'react-native';
-import {getNFTFeed} from '../../redux/nftSlice';
-import {ReduxState, useAppDispatch} from '../../redux/store';
 import {useSelector} from 'react-redux';
 import {ActivityIndicator} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
+
 import NftCard from '../../components/NFTCard';
+import {getNFTFeed} from '../../redux/nftSlice';
+import {ReduxState, useAppDispatch} from '../../redux/store';
 
 const NftListFooter = ({endReached}: {endReached: boolean}) => {
   return !endReached ? <ActivityIndicator size="large" /> : <Text>End</Text>;
@@ -31,7 +32,7 @@ const NFTs = () => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <FlatList
         refreshing={refreshing}
         onRefresh={refresh}
@@ -42,9 +43,23 @@ const NFTs = () => {
         renderItem={({item}) => <NftCard nft={item} />}
         ListFooterComponent={<NftListFooter endReached={endReached} />}
         ListEmptyComponent={<Text>Empty</Text>}
+        ListHeaderComponent={<Text style={styles.pageTitle}>NFTs</Text>}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
 };
 
 export default NFTs;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginHorizontal: 10,
+  },
+  pageTitle: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginVertical: 10,
+  },
+});

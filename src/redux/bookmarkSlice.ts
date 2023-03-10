@@ -1,7 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {createSlice, Dispatch, PayloadAction} from '@reduxjs/toolkit';
-import {Bookmark} from '../types/Bookmark';
+
 import {NFT} from '../types/NFT';
+import {Bookmark} from '../types/Bookmark';
 
 const initialState = {
   bookmarks: [] as Bookmark[],
@@ -82,7 +83,6 @@ export const addToBookmarks = (nft: NFT) => {
 export const removeFromBookmarks = (id: number) => {
   return async (dispatch: Dispatch) => {
     try {
-      console.log('remove from bookmarks');
       dispatch(setLoading(true));
       const bookmarks = await AsyncStorage.getItem('bookmarks');
       if (bookmarks) {
