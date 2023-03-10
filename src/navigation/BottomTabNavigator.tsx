@@ -6,6 +6,7 @@ import {
 import {ParamListBase, RouteProp} from '@react-navigation/native';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {GLOBAL} from '../GLOBAL';
 import {NFTs, Bookmarks} from './screens';
 
 export interface BottomTabNavProps<
@@ -27,18 +28,18 @@ interface TabBarIconProps {
   size: number;
 }
 
-const NFTIcon = ({color, size, focused}: TabBarIconProps) => (
+const NFTIcon = ({size, focused}: TabBarIconProps) => (
   <MCIcon
     name={focused ? 'view-gallery' : 'view-gallery-outline'}
-    color={color}
+    color={GLOBAL.colors.PRIMARY_BLUE}
     size={size}
   />
 );
 
-const BookmarksIcon = ({color, size, focused}: TabBarIconProps) => (
+const BookmarksIcon = ({size, focused}: TabBarIconProps) => (
   <MCIcon
     name={focused ? 'bookmark' : 'bookmark-outline'}
-    color={color}
+    color={GLOBAL.colors.PRIMARY_BLUE}
     size={size}
   />
 );

@@ -1,7 +1,16 @@
 import React from 'react';
 import Clipboard from '@react-native-clipboard/clipboard';
 import MCIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  ToastAndroid,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import {NFT} from '../types/NFT';
 import BookmarkIcon from './BookmarkIcon';
@@ -25,6 +34,11 @@ const NftCard = ({nft}: {nft: NFT}) => {
 
   const copyContent = (content: string) => () => {
     Clipboard.setString(content);
+    if (Platform.OS === 'ios') {
+      Alert.alert('Copied to clipboard!');
+    } else {
+      ToastAndroid.show('Copied to clipboard!', ToastAndroid.SHORT);
+    }
   };
 
   return (

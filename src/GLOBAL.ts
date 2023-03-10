@@ -13,4 +13,7 @@ export const GLOBAL = {
       */
     MAX: 101,
   },
+  colors: {
+    PRIMARY_BLUE: '#384aff',
+  },
 };

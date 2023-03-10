@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Animated, Pressable, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import {GLOBAL} from '../GLOBAL';
+
 const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
 interface BookmarkIconProps {
@@ -45,7 +47,7 @@ function BookmarkIcon({isOn, toggle}: BookmarkIconProps) {
       <AnimatedIcon
         name={isOn ? 'bookmark' : 'bookmark-outline'}
         size={40}
-        color="#384aff"
+        color={GLOBAL.colors.PRIMARY_BLUE}
         style={{transform: [{rotate: spin}, {scale: size}]}}
       />
     </Pressable>

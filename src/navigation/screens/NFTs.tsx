@@ -6,9 +6,14 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import NftCard from '../../components/NFTCard';
 import {getNFTFeed} from '../../redux/nftSlice';
 import {ReduxState, useAppDispatch} from '../../redux/store';
+import ListEndComponent from '../../components/ListEndComponent';
 
 const NftListFooter = ({endReached}: {endReached: boolean}) => {
-  return !endReached ? <ActivityIndicator size="large" /> : <Text>End</Text>;
+  return !endReached ? (
+    <ActivityIndicator size="large" />
+  ) : (
+    <ListEndComponent />
+  );
 };
 
 const NFTs = () => {

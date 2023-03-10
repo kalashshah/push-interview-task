@@ -1,15 +1,15 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const ListEndComponent = () => {
+const ListEmptyComponent = () => {
   return (
     <View style={styles.end}>
-      <Text style={styles.message}>No more items</Text>
+      <Text style={styles.message}>No items available</Text>
     </View>
   );
 };
 
-export default ListEndComponent;
+export default ListEmptyComponent;
 
 const styles = StyleSheet.create({
   end: {
