@@ -5,8 +5,11 @@ import {
   StyleSheet,
   useColorScheme,
 } from 'react-native';
+import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
-import BottomTabNavigator from './navigation/BottomTabNavigator';
+import BottomTabNavigator from './src/navigation/BottomTabNavigator';
+
+import store from './src/redux/store';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -14,22 +17,15 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <SafeAreaView style={backgroundStyle}>
-        <BottomTabNavigator />
-        {/* <SafeAreaView style={backgroundStyle}>
-        <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View>
-        <Text>Test</Text>
-        </View>
-        </ScrollView>
-      </SafeAreaView> */}
-      </SafeAreaView>
+      <Provider store={store}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <SafeAreaView style={backgroundStyle}>
+          <BottomTabNavigator />
+        </SafeAreaView>
+      </Provider>
     </NavigationContainer>
   );
 }
